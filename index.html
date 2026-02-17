@@ -124,29 +124,9 @@
 
         .hero-bg {
 
-            position: absolute;
+            /* 保留样式但隐藏，用于向后兼容 */
 
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            height: 100%;
-
-            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%9C%B0%E8%97%8F%E9%98%81%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B7.jpg/800px-%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%9C%B0%E8%97%8F%E9%98%81%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B7.jpg');
-
-            background-size: cover;
-
-            background-position: center;
-
-            background-attachment: fixed;
-
-            z-index: -2;
-
-            filter: brightness(0.7) contrast(1.2);
-
-            animation: slow-pan 60s infinite alternate ease-in-out;
+            display: none;
 
         }
 
@@ -254,7 +234,7 @@
 
             background: transparent;
 
-           color: var(--secondary);
+            color: var(--secondary);
 
             border: 1px solid rgba(212, 175, 55, 0.3);
 
@@ -298,7 +278,7 @@
 
             transition: left 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 
-            z-index: -1;
+           z-index: -1;
 
         }
 
@@ -532,7 +512,7 @@
 
             display: grid;
 
-           grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 
             gap: 40px;
 
@@ -574,7 +554,7 @@
 
                 0 30px 60px rgba(0,0,0,0.7),
 
-                0 0 0 1px rgba(212, 175, 55, 0.2),
+               0 0 0 1px rgba(212, 175, 55, 0.2),
 
                 0 0 40px rgba(157, 26, 26, 0.2);
 
@@ -804,7 +784,7 @@
 
             margin: 0 auto 40px;
 
-           color: rgba(248, 244, 233, 0.5);
+            color: rgba(248, 244, 233, 0.5);
 
             font-weight: 300;
 
@@ -852,7 +832,7 @@
 
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 
-            border: 1px solid rgba(212, 175, 55, 0.1);
+           border: 1px solid rgba(212, 175, 55, 0.1);
 
         }
 
@@ -1108,9 +1088,191 @@
 
             .btn {
 
-               padding: 15px 30px;
+                padding: 15px 30px;
 
                 font-size: 0.9rem;
+
+            }
+
+        }
+
+        
+
+        /* 大屏自动滚动轮播 */
+
+        .hero-carousel {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            z-index: -2;
+
+            overflow: hidden;
+
+        }
+
+        
+
+        .carousel-item {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            opacity: 0;
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+            filter: brightness(0.7) contrast(1.2);
+
+           animation: carousel-fade 20s infinite;
+
+        }
+
+        
+
+        .carousel-item:nth-child(1) {
+
+            background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%9C%B0%E8%97%8F%E9%98%81%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B7.jpg/800px-%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%9C%B0%E8%97%8F%E9%98%81%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B7.jpg');
+
+            animation-delay: 0s;
+
+        }
+
+        
+
+        .carousel-item:nth-child(2) {
+
+            background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%A4%A7%E9%9B%84%E5%AE%9D%E6%AE%BF%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B71.jpg/800px-%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%A4%A7%E9%9B%84%E5%AE%9D%E6%AE%BF%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B71.jpg');
+
+            animation-delay: 5s;
+
+        }
+
+        
+
+        .carousel-item:nth-child(3) {
+
+            background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%A4%A7%E9%9B%84%E5%AE%9D%E6%AE%BF%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B71.jpg/1000px-%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%A4%A7%E9%9B%84%E5%AE%9D%E6%AE%BF%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B71.jpg');
+
+            animation-delay: 10s;
+
+        }
+
+        
+
+        .carousel-item:nth-child(4) {
+
+            background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%A4%A7%E9%9B%84%E5%AE%9D%E6%AE%BF%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B71.jpg/800px-%E6%BD%AE%E5%B7%9E%E5%BC%80%E5%85%83%E5%AF%BA%E5%A4%A7%E9%9B%84%E5%AE%9D%E6%AE%BF%E5%B1%8B%E8%84%8A%E5%B5%8C%E7%93%B71.jpg');
+
+            animation-delay: 15s;
+
+        }
+
+        
+
+        @keyframes carousel-fade {
+
+            0% {
+
+                opacity: 0;
+
+                transform: scale(1);
+
+            }
+
+            10% {
+
+                opacity: 1;
+
+                transform: scale(1.02);
+
+            }
+
+            20% {
+
+                opacity: 1;
+
+                transform: scale(1.02);
+
+            }
+
+            30% {
+
+                opacity: 0;
+
+                transform: scale(1);
+
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+        
+
+        /* 精简文字样式 */
+
+        .hero-content h1 {
+
+            font-size: 4.5rem;
+
+            margin-bottom: 20px;
+
+        }
+
+        
+
+        .hero-content p {
+
+            font-size: 1.4rem;
+
+            max-width: 700px;
+
+            margin: 0 auto 30px;
+
+            line-height: 1.7;
+
+        }
+
+        
+
+        @media (max-width: 768px) {
+
+            .hero-content h1 {
+
+                font-size: 2.5rem;
+
+            }
+
+            
+
+            .hero-content p {
+
+                font-size: 1.2rem;
 
             }
 
@@ -1119,23 +1281,35 @@
     </style>
 
 </head>
-<body>
+    <body>
 
     <!-- Hero Section -->
 
     <section class="hero" id="home">
 
-        <div class="hero-bg"></div>
+        <div class="hero-carousel">
+
+            <div class="carousel-item"></div>
+
+            <div class="carousel-item"></div>
+
+            <div class="carousel-item"></div>
+
+            <div class="carousel-item"></div>
+
+        </div>
 
         <div class="hero-content container">
 
             <h1>潮汕嵌瓷艺术</h1>
 
-            <div class="vertical-title">歲月留痕</div>
+            <div class="vertical-title">国家级非遗</div>
 
             <p>
 
-                在百年潮州古城的月光下，开元寺的屋脊化作一幅流动的瓷画。成千上万片彩色瓷片，如星辰般镶嵌在黛瓦之上，每一片都承载着匠人指尖的温度与时光的印记。金色釉面在月光下泛起柔和光晕，青花瓷蓝与胭脂红在夜色中缓缓流淌，祥云纹理在瓷片间隙若隐若现。这不是简单的建筑装饰，而是一场跨越四百年的视觉交响——中国版的艺术拼图，正在潮汕的天空下徐徐展开。
+                普宁厝角头 · 揭阳现代装置 · 潮州屋脊艺术<br>
+
+                跨越四百年的视觉交响，中国版艺术拼图的终极形态
 
             </p>
 
@@ -1380,7 +1554,7 @@
         </div>
 
     </footer>
-     <script>
+        <script>
 
         // Fade-in animation on scroll
 
@@ -1446,19 +1620,11 @@
 
         
 
-        // Parallax effect for hero background
+        // Parallax effect for hero background (disabled for carousel)
 
         window.addEventListener('scroll', () => {
 
             const scrolled = window.pageYOffset;
-
-            const heroBg = document.querySelector('.hero-bg');
-
-            if (heroBg) {
-
-                heroBg.style.transform = `translateY(${scrolled * 0.5}px) scale(${1 + scrolled * 0.0001})`;
-
-            }
 
             
 
@@ -1568,7 +1734,7 @@
 
                 lightbox.style.alignItems = 'center';
 
-               lightbox.style.justifyContent = 'center';
+                lightbox.style.justifyContent = 'center';
 
                 lightbox.style.zIndex = '10000';
 
@@ -1576,7 +1742,7 @@
 
                 lightbox.style.backdropFilter = 'blur(20px)';
 
-                
+               
 
                 const content = document.createElement('div');
 
@@ -1732,7 +1898,7 @@
 
                 });
 
-               
+                
 
                 lightbox.appendChild(closeBtn);
 
@@ -1742,7 +1908,7 @@
 
                 lightbox.addEventListener('click', (e) => {
 
-                    if (e.target === lightbox) {
+                   if (e.target === lightbox) {
 
                         document.body.removeChild(lightbox);
 
